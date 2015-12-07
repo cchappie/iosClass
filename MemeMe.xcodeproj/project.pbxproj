@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C847AA11C1609E70014570C /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C847AA01C1609E70014570C /* Meme.swift */; };
 		3CF9BDDD1C14C1FE00C0F1C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF9BDDC1C14C1FE00C0F1C6 /* AppDelegate.swift */; };
 		3CF9BDDF1C14C1FE00C0F1C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF9BDDE1C14C1FE00C0F1C6 /* ViewController.swift */; };
 		3CF9BDE21C14C1FE00C0F1C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF9BDE01C14C1FE00C0F1C6 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C847AA01C1609E70014570C /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		3CF9BDD91C14C1FE00C0F1C6 /* MemeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CF9BDDC1C14C1FE00C0F1C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3CF9BDDE1C14C1FE00C0F1C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				3CF9BDE51C14C1FE00C0F1C6 /* LaunchScreen.storyboard */,
 				3CF9BE0C1C14D89000C0F1C6 /* camera.png */,
 				3CF9BDE81C14C1FE00C0F1C6 /* Info.plist */,
+				3C847AA01C1609E70014570C /* Meme.swift */,
 			);
 			path = MemeMe;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C847AA11C1609E70014570C /* Meme.swift in Sources */,
 				3CF9BDDF1C14C1FE00C0F1C6 /* ViewController.swift in Sources */,
 				3CF9BDDD1C14C1FE00C0F1C6 /* AppDelegate.swift in Sources */,
 			);
@@ -501,6 +505,7 @@
 				3CF9BE031C14C1FE00C0F1C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3CF9BE041C14C1FE00C0F1C6 /* Build configuration list for PBXNativeTarget "MemeMeTests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +514,7 @@
 				3CF9BE061C14C1FE00C0F1C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3CF9BE071C14C1FE00C0F1C6 /* Build configuration list for PBXNativeTarget "MemeMeUITests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +523,7 @@
 				3CF9BE091C14C1FE00C0F1C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

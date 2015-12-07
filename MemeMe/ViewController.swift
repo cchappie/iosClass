@@ -25,6 +25,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     @IBOutlet weak var cameraButton: UIButton!
     
+    @IBOutlet weak var shareButton: UIButton!
+    
+    @IBOutlet weak var toolBar: UIToolbar!
+    
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -40,19 +45,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     override func viewDidLoad() {
-        
-        topText.delegate = self
-        bottomText.delegate = self
-        
-        topText.text = "TOP"
-        topText.tag = 100
-        topText.textAlignment = NSTextAlignment.Center
-        topText.defaultTextAttributes = memeTextAttributes
-        
-        bottomText.text = "BOTTOM"
-        bottomText.tag = 200
-        bottomText.textAlignment = NSTextAlignment.Center
-        bottomText.defaultTextAttributes = memeTextAttributes
+        setTextDefaults(topText, defaultText: "TOP", tag: 100)
+        setTextDefaults(bottomText, defaultText: "BOTTOM", tag: 200)
+    
+        shareButton.enabled = imagePickerView.image != nil
+    }
+    
+    func setTextDefaults(textField: UITextField, defaultText: String, tag: Int) {
+        textField.text = defaultText
+        textField.tag = tag
+        textField.delegate = self
+        textField.textAlignment = NSTextAlignment.Center
+        textField.sizeToFit()
+        textField.defaultTextAttributes = memeTextAttributes
     }
 
     @IBAction func pickPhoto(sender: AnyObject) {
@@ -69,17 +74,68 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.presentViewController(pickerController, animated: true, completion: nil)
     }
     
+    @IBAction func share(sender: AnyObject) {
+        let newImage = generateMemedImage()
+        let objectsToShare = [newImage]
+        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        //TODO - somehow save the meme.
+        //  You can also call the dismissViewControllerAnimated method in the completion handler.
+        //  self.dismissViewControllerAnimated(true, completion: nil)
+        //activityVC.completionWithItemsHandler =
+        self.presentViewController(activityVC, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func cancel(sender: AnyObject) {
+        //set everything to initial state
+        topText.text = "TOP"
+        bottomText.text = "BOTTOM"
+        imagePickerView.image = nil
+        shareButton.enabled = false
+    }
+    
+    func save() {
+        
+        let memedImage = generateMemedImage()
+        
+        //Create the meme
+        let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+    }
+    
+    func generateMemedImage() -> UIImage
+    {
+        toolBar.hidden = true
+        navigationBar.hidden = true
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        self.view.drawViewHierarchyInRect(self.view.frame,
+            afterScreenUpdates: true)
+        let memedImage : UIImage =
+        UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        toolBar.hidden = false
+        navigationBar.hidden = false
+        
+        return memedImage
+    }
+    
+    
     func imagePickerController(picker: UIImagePickerController,
         didFinishPickingMediaWithInfo info: [String : AnyObject]) {
             
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             self.imagePickerView.image = image
+            shareButton.enabled = true
+        } else {
+            shareButton.enabled = false
         }
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func imagePickerControllerDidCancel() {
-        
+        shareButton.enabled = false
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -96,6 +152,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func keyboardWillShow(notification: NSNotification) {
+        //TODO
         //view.frame.origin.y -= getKeyboardHeight(notification)
     }
     
