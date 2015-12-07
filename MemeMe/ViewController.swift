@@ -19,13 +19,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     @IBOutlet weak var imagePickerView: UIImageView!
     
-    @IBOutlet weak var topText: UITextField!    
+    @IBOutlet weak var topText: UITextField!
     
     @IBOutlet weak var bottomText: UITextField!
 
-    @IBOutlet weak var cameraButton: UIButton!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
     
-    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     
     @IBOutlet weak var toolBar: UIToolbar!
     
@@ -56,7 +56,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         textField.tag = tag
         textField.delegate = self
         textField.textAlignment = NSTextAlignment.Center
-        textField.sizeToFit()
         textField.defaultTextAttributes = memeTextAttributes
     }
 
