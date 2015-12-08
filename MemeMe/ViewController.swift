@@ -77,10 +77,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let newImage = generateMemedImage()
         let objectsToShare = [newImage]
         let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-        //TODO - somehow save the meme.
-        //  You can also call the dismissViewControllerAnimated method in the completion handler.
-        //  self.dismissViewControllerAnimated(true, completion: nil)
-        //activityVC.completionWithItemsHandler =
+
+        activityVC.completionWithItemsHandler = {
+            (activity, success, items, error) in
+            print("Activity: \(activity) Success: \(success) Items: \(items) Error: \(error)")
+            self.save()
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        
         self.presentViewController(activityVC, animated: true, completion: nil)
     }
     
@@ -94,11 +98,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func save() {
-        
-        let memedImage = generateMemedImage()
-        
         //Create the meme
-        let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+        let imageToSave = generateMemedImage()
+        let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imagePickerView.image!, memedImage: imageToSave)
+        
+        // Add it to the memes array in the Application Delegate
+        var memesCollection = (UIApplication.sharedApplication().delegate as!
+            AppDelegate).memes
+        memesCollection.append(meme)
+        
+        print("save is completed. memes size is \(memesCollection.count).")
     }
     
     func generateMemedImage() -> UIImage
