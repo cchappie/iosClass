@@ -15,10 +15,6 @@
 		3CF9BDE71C14C1FE00C0F1C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF9BDE51C14C1FE00C0F1C6 /* LaunchScreen.storyboard */; };
 		3CF9BDF21C14C1FE00C0F1C6 /* MemeMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF9BDF11C14C1FE00C0F1C6 /* MemeMeTests.swift */; };
 		3CF9BDFD1C14C1FE00C0F1C6 /* MemeMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF9BDFC1C14C1FE00C0F1C6 /* MemeMeUITests.swift */; };
-		3CF9BE0D1C14D89000C0F1C6 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CF9BE0C1C14D89000C0F1C6 /* camera.png */; };
-		3CF9BE0F1C15E78200C0F1C6 /* GeneWilder.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3CF9BE0E1C15E78200C0F1C6 /* GeneWilder.jpeg */; };
-		3CF9BE111C15E90000C0F1C6 /* camera-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CF9BE101C15E90000C0F1C6 /* camera-2.png */; };
-		3CF9BE131C15E9CB00C0F1C6 /* camera-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 3CF9BE121C15E9CB00C0F1C6 /* camera-3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,10 +49,6 @@
 		3CF9BDF81C14C1FE00C0F1C6 /* MemeMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemeMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CF9BDFC1C14C1FE00C0F1C6 /* MemeMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeMeUITests.swift; sourceTree = "<group>"; };
 		3CF9BDFE1C14C1FE00C0F1C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3CF9BE0C1C14D89000C0F1C6 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = camera.png; path = ../camera.png; sourceTree = "<group>"; };
-		3CF9BE0E1C15E78200C0F1C6 /* GeneWilder.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = GeneWilder.jpeg; sourceTree = "<group>"; };
-		3CF9BE101C15E90000C0F1C6 /* camera-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-2.png"; sourceTree = "<group>"; };
-		3CF9BE121C15E9CB00C0F1C6 /* camera-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera-3.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,12 +102,8 @@
 				3CF9BDDC1C14C1FE00C0F1C6 /* AppDelegate.swift */,
 				3CF9BDDE1C14C1FE00C0F1C6 /* ViewController.swift */,
 				3CF9BDE01C14C1FE00C0F1C6 /* Main.storyboard */,
-				3CF9BE121C15E9CB00C0F1C6 /* camera-3.png */,
-				3CF9BE101C15E90000C0F1C6 /* camera-2.png */,
-				3CF9BE0E1C15E78200C0F1C6 /* GeneWilder.jpeg */,
 				3CF9BDE31C14C1FE00C0F1C6 /* Assets.xcassets */,
 				3CF9BDE51C14C1FE00C0F1C6 /* LaunchScreen.storyboard */,
-				3CF9BE0C1C14D89000C0F1C6 /* camera.png */,
 				3CF9BDE81C14C1FE00C0F1C6 /* Info.plist */,
 				3C847AA01C1609E70014570C /* Meme.swift */,
 			);
@@ -248,12 +236,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3CF9BDE71C14C1FE00C0F1C6 /* LaunchScreen.storyboard in Resources */,
-				3CF9BE111C15E90000C0F1C6 /* camera-2.png in Resources */,
-				3CF9BE0F1C15E78200C0F1C6 /* GeneWilder.jpeg in Resources */,
 				3CF9BDE41C14C1FE00C0F1C6 /* Assets.xcassets in Resources */,
-				3CF9BE0D1C14D89000C0F1C6 /* camera.png in Resources */,
 				3CF9BDE21C14C1FE00C0F1C6 /* Main.storyboard in Resources */,
-				3CF9BE131C15E9CB00C0F1C6 /* camera-3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

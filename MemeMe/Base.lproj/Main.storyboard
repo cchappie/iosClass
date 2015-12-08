@@ -65,14 +65,14 @@
                                 <rect key="frame" x="0.0" y="63" width="355" height="335"/>
                             </imageView>
                             <textField clipsSubviews="YES" tag="100" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q2k-lA-hwi">
-                                <rect key="frame" x="46" y="81" width="442" height="34"/>
+                                <rect key="frame" x="73" y="81" width="415" height="33"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" identifier="topText"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <textField clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uI5-fJ-EUC">
-                                <rect key="frame" x="46" y="349" width="442" height="32"/>
+                                <rect key="frame" x="73" y="349" width="415" height="29"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
@@ -83,13 +83,13 @@
                             <constraint firstAttribute="trailingMargin" secondItem="uI5-fJ-EUC" secondAttribute="trailing" constant="92" id="B4N-BB-5jI"/>
                             <constraint firstItem="ktk-ke-fxg" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="19" id="LS2-4I-g2G"/>
                             <constraint firstItem="ktk-ke-fxg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="LrV-P9-gQV"/>
+                            <constraint firstItem="q2k-lA-hwi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="53" id="MW4-be-ZUA"/>
+                            <constraint firstItem="uI5-fJ-EUC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="53" id="RoT-Dx-sbS"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ve2-xi-3I6" secondAttribute="bottom" id="S7L-PQ-SbT"/>
-                            <constraint firstItem="uI5-fJ-EUC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="26" id="SHz-Oo-iUR"/>
                             <constraint firstItem="Ve2-xi-3I6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Tix-J9-5RB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ktk-ke-fxg" secondAttribute="trailing" constant="-20" id="XM3-Iq-nxR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="q2k-lA-hwi" secondAttribute="trailing" constant="92" id="jMj-al-gue"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ve2-xi-3I6" secondAttribute="trailing" constant="-20" id="si4-FX-FkV"/>
-                            <constraint firstItem="q2k-lA-hwi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="26" id="zxc-gm-aym"/>
                         </constraints>
                     </view>
                     <connections>
