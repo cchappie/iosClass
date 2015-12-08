@@ -80,7 +80,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
         activityVC.completionWithItemsHandler = {
             (activity, success, items, error) in
-            print("Activity: \(activity) Success: \(success) Items: \(items) Error: \(error)")
             self.save()
             self.dismissViewControllerAnimated(true, completion: nil)
         }
@@ -103,11 +102,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imagePickerView.image!, memedImage: imageToSave)
         
         // Add it to the memes array in the Application Delegate
-        var memesCollection = (UIApplication.sharedApplication().delegate as!
-            AppDelegate).memes
-        memesCollection.append(meme)
-        
-        print("save is completed. memes size is \(memesCollection.count).")
+        (UIApplication.sharedApplication().delegate as!
+            AppDelegate).memes.append(meme)
     }
     
     func generateMemedImage() -> UIImage
@@ -160,13 +156,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        //TODO
-        //view.frame.origin.y -= getKeyboardHeight(notification)
+        view.frame.origin.y -= getKeyboardHeight(notification)
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        //TODO
-        //view.frame.origin.y += getKeyboardHeight(notification)
+        view.frame.origin.y += getKeyboardHeight(notification)
     }
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
