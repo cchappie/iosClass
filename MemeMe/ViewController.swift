@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
@@ -14,7 +15,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         NSStrokeColorAttributeName : UIColor.blackColor(),
         NSForegroundColorAttributeName : UIColor.whiteColor(),
         NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSStrokeWidthAttributeName : 5.0
+        NSStrokeWidthAttributeName : -8.0
     ]
 
     @IBOutlet weak var imagePickerView: UIImageView!
@@ -30,6 +31,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var toolBar: UIToolbar!
     
     @IBOutlet weak var navigationBar: UINavigationBar!
+    
+    var topTextConstraint : NSLayoutConstraint!
+    var bottomTextConstraint : NSLayoutConstraint!
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -55,7 +59,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         textField.text = defaultText
         textField.tag = tag
         textField.delegate = self
-        textField.textAlignment = NSTextAlignment.Center
+        textField.textAlignment = NSTextAlignment.Right
         textField.defaultTextAttributes = memeTextAttributes
     }
 
@@ -156,11 +160,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        view.frame.origin.y -= getKeyboardHeight(notification)
+        if self.bottomText.isFirstResponder() {
+            view.frame.origin.y -= getKeyboardHeight(notification)
+        }
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        view.frame.origin.y += getKeyboardHeight(notification)
+        if self.bottomText.isFirstResponder() {
+            view.frame.origin.y += getKeyboardHeight(notification)
+        }
     }
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
@@ -182,6 +190,56 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             textField.text = ""
         }
     }
+    
+    /**
+     thanks to Frazer Hogg for this code
+        http://stackoverflow.com/questions/32479499/updating-auto-layout-constraints-to-reposition-text-field
+    */
+    func layoutTextFields() {
+        
+        //Remove any existing constraints
+        if topTextConstraint != nil {
+            view.removeConstraint(topTextConstraint)
+        }
+        
+        if bottomTextConstraint != nil {
+            view.removeConstraint(bottomTextConstraint)
+        }
+        
+        //Get the position of the image inside the imageView
+        let size = imagePickerView.image != nil ? imagePickerView.image!.size : imagePickerView.frame.size
+        let frame = AVMakeRectWithAspectRatioInsideRect(size, imagePickerView.bounds)
+        
+        //A margin for the new constrains; 10% of the frame's height
+        let margin = frame.origin.y + frame.size.height * 0.10
+        
+        //Create and add the new constraints
+        topTextConstraint = NSLayoutConstraint(
+            item: topText,
+            attribute: .Top,
+            relatedBy: .Equal,
+            toItem: imagePickerView,
+            attribute: .Top,
+            multiplier: 1.0,
+            constant: margin)
+        view.addConstraint(topTextConstraint)
+        
+        bottomTextConstraint = NSLayoutConstraint(
+            item: bottomText,
+            attribute: .Bottom,
+            relatedBy: .Equal,
+            toItem: imagePickerView,
+            attribute: .Bottom,
+            multiplier: 1.0,
+            constant: -margin)
+        view.addConstraint(bottomTextConstraint)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        layoutTextFields()
+    }
+
 
 }
 
