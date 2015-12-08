@@ -84,7 +84,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
         activityVC.completionWithItemsHandler = {
             (activity, success, items, error) in
-            self.save()
+            if success {
+                self.save()
+            }
             self.dismissViewControllerAnimated(true, completion: nil)
         }
         
@@ -166,9 +168,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        if bottomText.isFirstResponder() {
-            view.frame.origin.y += getKeyboardHeight(notification)
-        }
+        view.frame.origin.y = 0
+
     }
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
